@@ -36,7 +36,7 @@ iReasoning is an example for a popular MIB browser. Please visit [iReasoning Web
 
 Once you have all the relevant MIB files, its time to gather OIDs.
 
-> I recommend writing down a list of metrics that are critical to monitor, for your device, on a piece of paper before you begin. MIB files can contain thousands of OIDs in it and you can easily get lost looking though it - I have found writing down critical metrics helps maintain focus.
+> I recommend writing down a list of metrics that are critical to monitor, for your device, on a piece of paper before you begin. MIB files can contain thousands of OIDs and you can easily get lost looking though it - I have found writing down critical metrics helps maintain focus.
 
 There are broadly two types of OIDs:
 
