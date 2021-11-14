@@ -109,7 +109,7 @@ Device MIB documentation is the best way to identify if an OID returns a single 
 
 <br/>
 
-### NEXT: [Prepare extension YAML](2_Prepare_extension_file.md)
+### NEXT: [Prepare extension.yaml](2_Prepare_extension_file.md)
 
 
 
