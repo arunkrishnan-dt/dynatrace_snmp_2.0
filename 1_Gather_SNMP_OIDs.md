@@ -90,8 +90,8 @@ Device MIB documentation is the best way to identify if an OID returns a single 
 ### OID details to note down during research
 
 1. OID in number format. Eg: `1.3.6.1.2.1.1.3.0`
-2. Where the OID is returns a single value or a table
-3. The return variable type for each metric
+2. Whether the OID returns a single value or a table
+3. The return variable type for each value (metric) returned
    
     Some common variable types seen are:
       - Counter32
