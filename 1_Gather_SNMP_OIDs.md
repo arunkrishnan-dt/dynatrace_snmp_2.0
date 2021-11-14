@@ -1,0 +1,1 @@
+# Gather SNMP OIDs for extension
