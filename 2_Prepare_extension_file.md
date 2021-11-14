@@ -27,11 +27,11 @@ SNMP
 
 ### YAML file
 
-The `extension.yaml` file follows below basic structure
+The `extension.yaml` file follows below basic structure:
 
 
 ```
-name: <value>
+name: <value>               
 version: <value>
 minDynatraceVersion: <value>
 author:
@@ -72,6 +72,19 @@ snmp:
           type: <value>
 
 ```
+
+Each parameter in order shown above:
+
+`name`: A name for the extension. This have to be in the format `custom:<your_chosen_name>`. Example: `custom:cisco_router_snmp`
+
+`version`: This is the your iteration. Example: `1.0.0`
+
+`minDynatraceVersion`: Earliest version of Dynatrace that this extension can run on. For the purpose of this documentation please use `"1.217"`
+
+`author`
+
+    `name`: Company/your name.
+
 
 
 
