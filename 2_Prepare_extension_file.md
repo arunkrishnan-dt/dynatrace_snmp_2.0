@@ -1,8 +1,8 @@
 # Prepare extension.yaml
 
-> Please read official [Extensions 2.0 concepts](https://www.dynatrace.com/support/help/shortlink/extensions-concepts) for how the extension works.
-
 Dynatrace Extension Framework 2.0 provides us the capability to define extensions as `.yaml` files. In this page, you will learn how to prepare `extension.yaml` file for SNMP monitoring.
+
+> Please read official [Extensions 2.0 concepts](https://www.dynatrace.com/support/help/shortlink/extensions-concepts) for how the extension works.
 
 > This documentation does not require a deep understanding of `yaml` file structure but recommend light reading on the topic.
 
@@ -59,13 +59,16 @@ snmp:
 
   subgroups:
     - subgroup: <value>
-      table: <value>      
+      table: false    
       metrics:
         - key: <value>
           value: oid:<value>
           type: <value>
     - subgroup: <value>
-      table: <value>      
+      table: true
+      dimensions:
+        - key: <value>
+          value: <value>
       metrics:
         - key: <value>
           value: oid:<value>
@@ -83,7 +86,7 @@ Each parameter in order shown above:
 
 `author`
 
-    `name`: Company/your name.
+  `name`: Company/your name.
 
 
 
