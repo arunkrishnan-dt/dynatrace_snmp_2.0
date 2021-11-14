@@ -30,6 +30,7 @@ The MIB files usually provide OIDs in string format. In order to get the numeric
 
 iReasoning is an example for a popular MIB browser. Please visit [iReasoning Website](http://www.ireasoning.com/) for details.
 
+<br/>
 
 ### Gathering required OIDs
 
@@ -82,6 +83,33 @@ An `snmpget` on this oid will not return an error message.
 ![snmpwalk_table_error](images/snmwalk_table_error.png)
 
 Device MIB documentation is the best way to identify if an OID returns a single value or a table.
+
+
+<br/>
+
+### OID details to note down during research
+
+1. OID in number format. Eg: `1.3.6.1.2.1.1.3.0`
+2. Where the OID is returns a single value or a table
+3. The return variable type for each metric
+   
+    Some common variable types seen are:
+      - Counter32
+      - Counter64   
+      - INTEGER
+      - Gauge32
+      - Gauge64
+      - STRING  
+      - Timeticks
+
+    This can be seen in the result of an `snmpget` or `snmwalk` command. See highlighted in below result.
+
+    ![snmpwalk_table_highlighted](images/snmwalk_table_highlighted.png)
+
+
+<br/>
+
+### NEXT: [Prepare extension YAML](2_Prepare_extension_file.md)
 
 
 
