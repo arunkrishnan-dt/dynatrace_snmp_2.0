@@ -2,7 +2,9 @@
 
 This repo walks throught the process of creating and testing a Dynatrace SNMP extension based off Extension 2.0 framework.
 
-Please note that this is not Dynatrace Official Documentation. Refer to [Extension 2.0 | Dynatrace Documentation](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/) for official documentation and latest changes. 
+> **NOTE**: This documentation assumes that the reader has some basic understanding of SNMP and is familiar with snmp commands like `snmpget` amd `snmpwalk`. 
+
+> Please note that this is not Dynatrace Official Documentation. Refer to [Extension 2.0 | Dynatrace Documentation](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/) for official documentation and latest changes. 
 
 ## Simple Network Management Protocol (SNMP)
 
@@ -21,3 +23,5 @@ Dynatrace currently support SNMP Poll feature. SNMP Trap is planned to be releas
 <br/>
 
 This documentation only covers **SNMP Poll**. 
+
+
