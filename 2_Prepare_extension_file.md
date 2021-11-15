@@ -275,3 +275,10 @@ snmp:
           type: count
 
 ```
+
+
+<br/>
+
+Once `extension.yaml` is ready, its time to package the extension to a zip file.
+
+### NEXT: [Sign Extension](3_Sign_extension.md)
