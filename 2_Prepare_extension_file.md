@@ -1,6 +1,6 @@
 # Prepare extension.yaml
 
-Dynatrace Extension Framework 2.0 provides us the capability to define extensions as `.yaml` files. In this page, you will learn how to prepare `extension.yaml` file for SNMP monitoring.
+Dynatrace Extension Framework 2.0 provides the capability to define extension configuration as `.yaml` file. In this page, you will learn how to prepare `extension.yaml` file for SNMP monitoring.
 
 > Please read official [Extensions 2.0 concepts](https://www.dynatrace.com/support/help/shortlink/extensions-concepts) for how the extension works.
 
