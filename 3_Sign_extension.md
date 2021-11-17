@@ -1,8 +1,8 @@
 # Sign Extension
 
-The next step in extension creation process is to Sign your extension with your Certificate and make it ready for use.
+The next step in extension creation process is to Sign your extension with a certificate and make it ready for use.
 
-> NOTE: This page describes generating and signing an extension using Dynatrace Open Source [dt-cli](https://github.com/dynatrace-oss/dt-cli) utility. Please see [Sign extension](https://www.dynatrace.com/support/help/shortlink/sign-extension) official documentation for manual step by step instruction.
+> NOTE: This page describes generating and signing an extension using Dynatrace Open Source [dt-cli](https://github.com/dynatrace-oss/dt-cli) utility. Please see [Sign extension](https://www.dynatrace.com/support/help/shortlink/sign-extension) official documentation for manual step by step instructions.
 
 <br/>
 
@@ -20,7 +20,7 @@ The next step in extension creation process is to Sign your extension with your 
 
 2. Install Python
 
-    Open downloaded `.exe` file and select 'Add Python 3.10 to PATH' checkbox and then click `Install Now`
+    Open downloaded `.exe` file, select 'Add Python 3.10 to PATH' checkbox and then click `Install Now`
 
     ![python_install_1](images/python_install_1.png)
 
@@ -48,7 +48,7 @@ The next step in extension creation process is to Sign your extension with your 
 
 ## Generate certficates and sign extension
 
-Change terminal directory to your directory that has the extension folder and run `dt extension gencerts`. Leave all entries blank by hitting 'Enter' key. 
+Change terminal path to your directory that has the 'extension' folder. Then run `dt extension gencerts` - Leave all entries blank by hitting 'Enter' key. 
 
 This generates the CA and Developer Certificates and Keys required to sign the extension.
 
@@ -56,7 +56,7 @@ This generates the CA and Developer Certificates and Keys required to sign the e
 
 <br/>
 
-Next sign extension by running `dt extension build`. This command uses the generated certificates to sign the extension and generate a zip file.
+Next, sign extension by running `dt extension build`. This command uses the generated certificates to sign the extension and generate a zip file.
 
 <br/>
 
@@ -64,9 +64,9 @@ Next sign extension by running `dt extension build`. This command uses the gener
 
 The CA certificate used to sign an extension has to be present on all ActiveGates from which the extension is to run. 
 
-If there are multiple ActiveGates in a tenancy, Dynatrace chooses an ActiveGate to run extension based on the ActiveGate group specified in Monitoring configuration (we will be looking at this later)
+If there are multiple ActiveGates in a tenancy, Dynatrace chooses an ActiveGate to run the extension based on ActiveGate group specified in Monitoring configuration (we will be looking at this later).
 
-Copy `ca.pem` file to following ActiveGate directories on respective OS.
+Copy `ca.pem` file to following ActiveGate directory on respective OS.
 
 Windows: `%PROGRAMDATA%\dynatrace\oneagent\agent\config\certificates\`
 
@@ -76,11 +76,9 @@ Linux: `/var/lib/dynatrace/oneagent/agent/config/certificates`
 
 ## Assign a group to your ActiveGate
 
-During SNMP monitoring setup, there is the option to select Group of ActiveGates from which extension is to run.
+During SNMP monitoring setup, there is the option to select ActiveGate 'Group' to run the extension. All ActiveGates out of the box belong to 'default' group. If you would like the extension to run from a subset of your ActiveGates, a group has to be defined.
 
-All ActiveGates out of the box belong to 'default' group.
-
-If you would like extension to run from only certain ActiveGates,  specify a new 'group' in those ActiveGate `custom.properties` file and restart Dynatrace ActiveGate service.
+To add an ActiveGate to a group, specify 'group' parameter in ActiveGate `custom.properties` file and restart Dynatrace ActiveGate service.
 
 Location of custom.properties file:
 
@@ -94,12 +92,12 @@ Content to add in `custom.properties`:
 
 ```
 [collector]
-group = snmp_extension
+group = snmp_extension      # Feel free to chose another group name 
 ```
 
 ![activegate_group](images/activegate_group.png)
 
-Once the ActiveGate service is restarted, the new group name should appear in UI.
+Once ActiveGate service is restarted, the new group name should appear in ActiveGate properties under `Deployment Status > ActiveGates > <your_activeGate>`.
 
 ![activegate_group_2](images/activegate_group_ui.png)
 

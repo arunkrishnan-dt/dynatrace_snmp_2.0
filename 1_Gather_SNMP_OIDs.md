@@ -1,6 +1,6 @@
 # Gather SNMP OIDs for extension
 
-Dynatrace Extension 2.0 SNMP framework requires that you provide the exact OIDs (Object Identifiers) you wish to monitor. This approach is different to other common SNMP managers where you can present an entire MIB file. 
+Dynatrace Extension 2.0 SNMP framework requires that you provide exact OIDs (Object Identifiers) for metrics you wish to monitor. This approach is different to other common SNMP managers where you can present an entire MIB file. 
 
 ### Terminology:
 
@@ -8,11 +8,11 @@ Dynatrace Extension 2.0 SNMP framework requires that you provide the exact OIDs 
 
 An OID is a sequence of digits separated by '.' that refers to a particular metric on the device. 
 
-For example, the OID `1.3.6.1.2.1.1.3.0` refers to `sysUpTime` which provides the up time of the device in TimeTicks.
+For example, the OID `1.3.6.1.2.1.1.3.0` refers to `sysUpTime` which provides the Uptime of the device in Timeticks.
 
 **MIB (Management Information Base)**:
 
-A MIB is a file that device manufacturer provides that contains the OIDs accepted by the device. A device usually has multiple MIBs focussing on certain set of metrics. For example, a MIB with OIDs for resource metrics like CPU, Memory etc, another for interface metrics and so on.
+A MIB is a file, provided by device manufacturer, that contains OIDs accepted by the device. A device usually has multiple MIBs focussing on certain set of metrics. For example, there can be a MIB with OIDs for resource metrics like CPU, Memory etc and another for interface metrics, and so on.
 
 There are 2 types of MIBs:
 - Generic MIBs that are common to all devices irrespective of make and model.
@@ -24,7 +24,7 @@ All MIBs accepted by a device are usually available to download from device mana
 
 ### Reading MIB files
 
-MIB files usually come in `.txt` or `.mib` formats but can also depend on manufacturer. The common factor is that all MIBs should be readable in a text editor.
+MIB files usually come with `.txt`, `.my` or `.mib` extensions, but can also depend on manufacturer. The common factor is that all MIBs should be readable in a text editor.
 
 The MIB files usually provide OIDs in string format. In order to get the numeric format you may have to use a MIB browser software. 
 
@@ -36,7 +36,7 @@ iReasoning is an example for a popular MIB browser. Please visit [iReasoning Web
 
 Once you have all the relevant MIB files, its time to gather OIDs.
 
-> I recommend writing down a list of metrics that are critical to monitor, for your device, on a piece of paper before you begin. MIB files can contain thousands of OIDs and you can easily get lost looking though it - I have found writing down critical metrics helps maintain focus.
+> TIP: Recommend writing down a list of metrics that are critical to monitor for your device before you begin. MIB files can contain thousands of OIDs and you can easily get lost looking though it. I have found writing down critical metrics helps maintain focus.
 
 There are broadly two types of OIDs:
 
@@ -45,7 +45,7 @@ There are broadly two types of OIDs:
 
 **OIDs that provide single value**
 
-These are the OIDs that provide a single return value - like UpTime, CPU, Memory etc. These metrics should be retrivable using a `snmpget` command.
+These are the OIDs that provide a single return value - like Uptime, CPU, Memory etc. These metrics should be retrivable using a `snmpget` command.
 
 Example:
 
@@ -65,6 +65,9 @@ Breaking down the query:
 
 `1.3.6.1.2.1.1.3.0`: OID to gather details
 
+> TIP: Recommend running both `snmget` and `snmwalk` on all OIDs. This way you can easily identify if the OID returns a table or single values. Sometimes you will find that you have to append a `.0` or `.1` to get a single value OID to get the value. This does not make it a table OID. 
+
+<br/>
 
 **OIDs that return a table**
 
@@ -81,6 +84,8 @@ This particular query returns values like Index, Description, Type, MTU, Speed, 
 You will notice that an `snmpget` on this oid will return an error message as below.
 
 ![snmpwalk_table_error](images/snmwalk_table_error.png)
+
+
 
 Device MIB documentation is the best way to identify if an OID returns a single value or a table.
 

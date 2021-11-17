@@ -1,24 +1,24 @@
 # Upload extension to tenancy and setup monitoring
 
-Extension upload and monitoring configuration setup can be done via both UI and API. This document covers the UI method. If you are interested in doing these through API please refer to [Manage Extension 2.0 lifecycle](https://www.dynatrace.com/support/help/shortlink/extension-lifecycle)
+Extension upload and monitoring configuration can be done via both UI and API. This document covers the UI method. If you are interested in doing these through API please refer to [Manage Extension 2.0 lifecycle](https://www.dynatrace.com/support/help/shortlink/extension-lifecycle)
 
 ## Upload extension
 
-Navigate to `Manage > Hub > Extension 2.0 in your environment` and then click on `Upload custom Extesion 2.0` 
+1. Navigate to `Manage > Hub > Extension 2.0 in your environment` and click on `Upload custom Extesion 2.0` 
 
-![extension upload](images/extension_upload.png)
-
-<br/>
-
-Upload your extension to the page with relevant details
-
-![extension upload 2](images/extension_upload_2.png)
+    ![extension upload](images/extension_upload.png)
 
 <br/>
 
-Upload extension takes you to the configuration page.
+2. Upload your extension to the page with relevant details
 
-![extension configuration](images/extension_configuration_0.png)
+    ![extension upload 2](images/extension_upload_2.png)
+
+<br/>
+
+3. Upload extension takes you to the configuration page.
+
+    ![extension configuration](images/extension_configuration_0.png)
 
 
 <br/>

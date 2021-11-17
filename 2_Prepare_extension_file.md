@@ -1,6 +1,6 @@
 # Prepare extension.yaml
 
-Dynatrace Extension Framework 2.0 provides the capability to define extension configuration as `.yaml` file. In this page, you will learn how to prepare `extension.yaml` file for SNMP monitoring.
+Dynatrace Extension Framework 2.0 provides the capability to define extension configuration as a `.yaml` file. In this page, you will learn how to prepare `extension.yaml` file rquired for SNMP monitoring.
 
 > Please read official [Extensions 2.0 concepts](https://www.dynatrace.com/support/help/shortlink/extensions-concepts) for how the extension works.
 
@@ -80,9 +80,9 @@ Each parameter in order shown above:
 
 `name`: A name for the extension. This have to be in the format `custom:<your_chosen_name>`. Example: `custom:cisco_router_snmp`
 
-`version`: This is the your extension iteration version. Example: `1.0.0` and go up as `1.1.0`, `1.2.0` and so on as your update the extension.
+`version`: This is the your extension iteration version. Example: `1.0.0` and go up as `1.1.0`, `1.2.0` and so on as you update the extension.
 
-`minDynatraceVersion`: Earliest version of Dynatrace that this extension can run on. For the purpose of this documentation please use `"1.217"`
+`minDynatraceVersion`: Earliest version of Dynatrace Server this extension can run on. For the purpose of this documentation please use `"1.217"`
 
 <br/>
 
@@ -100,17 +100,19 @@ Each parameter in order shown above:
 
   `description`: A description for your metric
 
-  `unit`: Unit for your metric. Example Percentage, Byte, Count etc. See full list of available units see `Unit` parameter under [Response body > Response parameters (tab) > The MetricDescriptor object > unit > the element can hold these values](https://www.dynatrace.com/support/help/shortlink/api-metrics-v2-get-all#response)
+  `unit`: Unit for your metric. Example Percentage, Byte, Count etc. For full list of available Units see `Unit` parameter under [Response body > Response parameters (tab) > The MetricDescriptor object > unit > the element can hold these values](https://www.dynatrace.com/support/help/shortlink/api-metrics-v2-get-all#response)
 
 <br/>
 
-`snmp`: In this section all required metrics are organized in groups and subgroups. The recommendation is to keep indivual and table OIDs in separate groups.
+`snmp`: In this section all required metrics are organized in groups and subgroups. Indivual and Table OIDs have to specified in separate subgroups.
 
 `group`: A group of metrics. Please see [Groups and subgroups](https://www.dynatrace.com/support/help/shortlink/extension-yaml#groups-and-subgroups) for details.
 
 `interval`: Frequecy of SNMP polling. Examples: 1m, 5m etc. Please see [Interval](https://www.dynatrace.com/support/help/shortlink/extension-yaml#interval) for details.
 
-`dimensions`: Your dimension value. An analogy for dimension is - If 'City' is the Dimension, then 'London', 'New York', 'Auckland' etc are some dimension values. A common dimension for SNMP is the device IP address. A dimension provides the ability to filter metrics. For example, if you want to see CPU breakdown per device, you can specify IP address as a dimension and then use it to 'split' or 'filter' results. Please see [Dimension](https://www.dynatrace.com/support/help/shortlink/metric-ingestion-protocol#dimension-optional) for details.
+`dimensions`: Your dimension value. An analogy for dimension is - If 'City' is the Dimension, then 'London', 'New York', 'Auckland' etc are some dimension values. A common dimension for SNMP is the device IP address. 
+
+A dimension provides the ability to filter metrics. For example, if you want to see CPU breakdown per device, you can specify IP address as a dimension and then use it to 'split' or 'filter' results. Please see [Dimension](https://www.dynatrace.com/support/help/shortlink/metric-ingestion-protocol#dimension-optional) for more details.
 
 Multiple dimensions can be defined.
 
@@ -118,10 +120,11 @@ Multiple dimensions can be defined.
 
 `value: oid:`: This is where you tell extension where to pick up Dimension values. Examples: `this:device.address` - value based on extension configuration & `1.3.6.1.2.1.1.5.0` - value from OID
 
-`subgroups`: It is here that we organize our OIDs into separate groups.
+`subgroups`: Required OIDs are organized into separate subgroups.
 
 `metrics`
-`key`: The unique values here are the same 'keys' from under root `metrics` where you provided metadata for the key. So the same `key` appears twice in the extension.
+
+`key`: The unique values here are the same 'keys' from root `metrics` where you defined metadata for the key. So the same `key` appears twice in the extension.
 1. under root `metrics` and
 2. under `snmp` > `group` > `subgroups` > `metrics`
 
@@ -129,11 +132,11 @@ Multiple dimensions can be defined.
 
 Other Unique items in this section that were not discussed earlier are `table` and `type`
 
-`table`: This tells the extension if the OIDs are to be treated as individual OIDs or table root OID. Acceptable values are `true` or `false`
+`table`: This tells the extension if the OIDs are to be treated as individual OIDs or table OIDs. Acceptable values are `true` or `false`
 
-`type`: Dynatrace support two metric types - `gauge` and `count` metrics. Please see [Payload](https://www.dynatrace.com/support/help/shortlink/metric-ingestion-protocol#payload-required) for details on these types. In case of SNMP extension below is a generic rule I follow.
+`type`: Dynatrace supports two metric types - `gauge` and `count` metrics. Please see [Payload](https://www.dynatrace.com/support/help/shortlink/metric-ingestion-protocol#payload-required) for details on these types. Below is a generic rule I follow.
 
-If `snmpget` or `snmpwalk` of an OID returns the variable type as `Counter32` or `Counter64`, then type is `Count` and if the return variable type is anything **EXCEPT** `STRING`, then type is `Gauge`
+If `snmpget` or `snmpwalk` of an OID returns the variable type as `Counter32` or `Counter64`, then 'type' is `Count` and if the return variable type is anything **EXCEPT** `STRING`, type is `Gauge`
 
 `STRING` variable types can **ONLY** be dimensions. String values cannot be sent to Dynatrace as a metric.
 
@@ -143,7 +146,8 @@ If `snmpget` or `snmpwalk` of an OID returns the variable type as `Counter32` or
 
 ## Example extension
 
-Here is a full example of an extension for Cisco Network Switch. 
+Here is a full example of an extension to monitor Cisco Network Switches.
+ 
 > Please note that this extension has not been tested for all Cisco switches. The OIDs may vary between models.
 
 ```
