@@ -1,6 +1,6 @@
 # Dynatrace Extension 2.0 How To
 
-This repo walks throught the process of creating and testing a Dynatrace SNMP extension based off Extension 2.0 framework.
+This repo walks you through the process of creating and testing a Dynatrace SNMP extension based off Extension 2.0 framework.
 
 > **NOTE**: This documentation assumes that the reader has some basic understanding of SNMP and is familiar with snmp commands like `snmpget` amd `snmpwalk`. 
 
