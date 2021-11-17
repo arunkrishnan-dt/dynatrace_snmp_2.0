@@ -116,4 +116,4 @@ Navigate to `Settings > Web and mobile monitoring > Credential vault` and click 
 
 <br/>
 
-### NEXT: [Upload Extension and Setup Monitoring](2_Prepare_extension_file.md)
+### NEXT: [Upload Extension and Setup Monitoring](4_Upload_and_setup_monitoring.md)
