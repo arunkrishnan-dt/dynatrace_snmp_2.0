@@ -1,4 +1,4 @@
-# Dynatrace Extension 2.0 How To
+# Dynatrace SNMP Extension 2.0 How To
 
 This repo walks you through the process of creating and testing a Dynatrace SNMP extension based off Extension 2.0 framework.
 
