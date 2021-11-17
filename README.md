@@ -25,3 +25,13 @@ Dynatrace currently support SNMP Poll feature. SNMP Trap is planned to be releas
 This documentation only covers **SNMP Poll**. 
 
 
+## Pages:
+
+Setup Steps:
+1. [Gather SNMP OIDs for extension](1_Gather_SNMP_OIDs.md)
+2. [Prepare extension.yaml](2_Prepare_extension_file.md)
+3. [Sign Extension](3_Sign_extension.md)
+4. [Upload extension to tenancy and setup monitoring](4_Upload_and_setup_monitoring.md)
+5. [Check metrics and chart](5_Check_metrics_and_chart.md)
+
+[Troubleshooting](6_Troubleshooting.md)
