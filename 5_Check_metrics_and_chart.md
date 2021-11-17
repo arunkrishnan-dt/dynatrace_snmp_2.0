@@ -31,4 +31,6 @@ From this point all metrics can be charted as usual using Dynatrace Data Explore
 ![create chart](images/create_chart_2.png)
 
 
-NEXT: [Troubleshooting](6_Troubleshooting.md)
+<br/>
+
+## NEXT: [Troubleshooting](6_Troubleshooting.md)
